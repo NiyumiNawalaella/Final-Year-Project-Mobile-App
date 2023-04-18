@@ -14,7 +14,7 @@ public class AuthController : MonoBehaviour
         
             if(task.IsCanceled)
             {
-
+                return;
             }
             if(task.IsFaulted)
             {
@@ -44,6 +44,6 @@ public class AuthController : MonoBehaviour
 
         msg = errorCode.ToString();
 
-        //switch(CaseInsensitiveComparer)
+        print(msg);
     }
 }
