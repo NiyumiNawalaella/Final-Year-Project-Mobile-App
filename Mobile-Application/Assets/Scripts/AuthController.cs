@@ -12,6 +12,23 @@ public class AuthController : MonoBehaviour
     {
         FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task => { 
         
+            if(task.IsCanceled)
+            {
+
+            }
+            if(task.IsFaulted)
+            {
+                Firebase.FirebaseException e =
+                task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+
+                GetErrorMessage((AuthError)e.ErrorCode);
+
+                return;
+            }
+            if(task.IsCompleted)
+            {
+
+            }
         }));
     }
 
@@ -20,4 +37,13 @@ public class AuthController : MonoBehaviour
     public void RegisterUser() { }
 
     public void Logout() { }
+
+    public void GetErrorMessage(AuthError errorCode)
+    {
+        string msg = "";
+
+        msg = errorCode.ToString();
+
+        //switch(CaseInsensitiveComparer)
+    }
 }
