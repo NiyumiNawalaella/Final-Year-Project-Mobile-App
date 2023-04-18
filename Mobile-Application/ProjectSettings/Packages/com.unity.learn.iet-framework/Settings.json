@@ -1,13 +1,3 @@
-{
-    "m_Name": "Settings",
-    "m_Path": "ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json",
-    "m_Dictionary": {
-        "m_DictionaryValues": [
-            {
-                "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-                "key": "IET.ShowTutorialsClosedDialog",
-                "value": "{\"m_Value\":true}"
-            }
-        ]
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:eabecddbad8b25d0df485cd90abb6ff755453bc3d38afc794baa26ba9752b2b6
+size 434
