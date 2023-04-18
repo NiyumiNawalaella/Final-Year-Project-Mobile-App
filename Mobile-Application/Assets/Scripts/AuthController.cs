@@ -10,7 +10,9 @@ public class AuthController : MonoBehaviour
 
     public void Login()
     {
-
+        FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task => { 
+        
+        }));
     }
 
     public void Login_Anonymous() { }

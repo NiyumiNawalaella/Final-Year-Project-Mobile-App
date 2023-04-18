@@ -319,6 +319,7 @@ RectTransform:
   - {fileID: 274565028}
   - {fileID: 2128014343}
   - {fileID: 1879205673}
+  - {fileID: 1727497677}
   m_Father: {fileID: 1197754545}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -377,7 +378,6 @@ GameObject:
   - component: {fileID: 274565031}
   - component: {fileID: 274565030}
   - component: {fileID: 274565029}
-  - component: {fileID: 274565032}
   m_Layer: 5
   m_Name: Login_Button
   m_TagString: Untagged
@@ -402,7 +402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.16992, y: -318}
+  m_AnchoredPosition: {x: 0.16992188, y: -318}
   m_SizeDelta: {x: 419.96, y: 64.1908}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274565029
@@ -449,9 +449,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 1634a273cf74a09468dcaa7bb128ba93, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 1727497678}
+        m_TargetAssemblyTypeName: AuthController, Assembly-CSharp
+        m_MethodName: Login
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -499,20 +499,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274565027}
   m_CullTransparentMesh: 1
---- !u!114 &274565032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274565027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1634a273cf74a09468dcaa7bb128ba93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emailInput: {fileID: 0}
-  passwordInput: {fileID: 0}
 --- !u!1 &473703230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,6 +1533,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626459732}
   m_CullTransparentMesh: 1
+--- !u!1 &1727497676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727497677}
+  - component: {fileID: 1727497678}
+  m_Layer: 0
+  m_Name: AuthController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1727497677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727497676}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -540, y: -1080, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 99969063}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1727497678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727497676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1634a273cf74a09468dcaa7bb128ba93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emailInput: {fileID: 0}
+  passwordInput: {fileID: 0}
 --- !u!1 &1795444718
 GameObject:
   m_ObjectHideFlags: 0
