@@ -675,7 +675,7 @@ GameObject:
   - component: {fileID: 592308264}
   - component: {fileID: 592308263}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Email_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,8 +777,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.236, y: 144.58899}
-  m_SizeDelta: {x: 2379.019, y: 3308.812}
+  m_AnchoredPosition: {x: -16.609993, y: 144.58899}
+  m_SizeDelta: {x: 2806.5278, y: 3308.812}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &777548511
 MonoBehaviour:
@@ -1576,8 +1576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1634a273cf74a09468dcaa7bb128ba93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emailInput: {fileID: 0}
-  passwordInput: {fileID: 0}
+  emailInput: {fileID: 592308263}
+  passwordInput: {fileID: 1832674041}
 --- !u!1 &1795444718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,7 +1656,7 @@ GameObject:
   - component: {fileID: 1832674042}
   - component: {fileID: 1832674041}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Password_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

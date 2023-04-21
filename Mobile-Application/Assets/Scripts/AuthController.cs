@@ -10,6 +10,11 @@ public class AuthController : MonoBehaviour
 
     public void Login()
     {
+        if (emailInput.text.Equals("") && passwordInput.text.Equals(""))
+        {
+            print("Please enter an email and password to login");
+            return;
+        }
         FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task => { 
         
             if(task.IsCanceled)
