@@ -27,14 +27,46 @@ public class AuthController : MonoBehaviour
             }
             if(task.IsCompleted)
             {
-
+                print("User Logged In");
+                return;
             }
         }));
     }
 
     public void Login_Anonymous() { }
 
-    public void RegisterUser() { }
+    public void RegisterUser()
+    {
+        if(emailInput.text.Equals("") && passwordInput.text.Equals(""))
+        {
+            print("Please enter an email and password to register");
+            return;
+        }
+        FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task =>
+        {
+            if (task.IsCanceled)
+            {
+                Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+
+                GetErrorMessage((AuthError)e.ErrorCode);
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Firebase.FirebaseException e =
+                task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+
+                GetErrorMessage((AuthError)e.ErrorCode);
+
+                return;
+            }
+            if (task.IsCompleted)
+            {
+                print("Registracion COMPLETE");
+            }
+        }));
+    }
+    
 
     public void Logout() { }
 
