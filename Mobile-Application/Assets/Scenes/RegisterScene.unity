@@ -807,7 +807,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: Role
 --- !u!222 &585408091
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -886,7 +886,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: Shop Owner
 --- !u!222 &677933177
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2316,7 +2316,7 @@ GameObject:
   - component: {fileID: 1350994819}
   - component: {fileID: 1350994820}
   m_Layer: 5
-  m_Name: Item
+  m_Name: Shop Owner_Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
