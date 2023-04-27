@@ -7,7 +7,7 @@ using Firebase.Auth;
 public class AuthController : MonoBehaviour
 {
     public Text emailInput, passwordInput, roleInput;
-    [SerializeField] Button registershop, registerCustomer;
+    //[SerializeField] Button registershop, registerCustomer;
 
     public void Login()
     {
@@ -52,8 +52,7 @@ public class AuthController : MonoBehaviour
             print("Please enter an email, password and select the role to register");
             return;
         }
-        if (roleInput.text.Equals("Customer"))
-        {
+       
             FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task =>
             {
                 if (task.IsCanceled)
@@ -74,40 +73,12 @@ public class AuthController : MonoBehaviour
                 }
                 if (task.IsCompleted)
                 {
-                   //registerCustomer.GetComponentRegister
+                    print("Registracion COMPLETE");
+                    //ScenesManager.Instance.LoadScene(ScenesManager.Scene.WelcomeScene);
+                    //registerCustomer.GetComponentRegister
                 }
             }));
-        }
         
-        if (roleInput.text.Equals("Shop Owner"))
-        {
-           
-
-            FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task =>
-            {
-                if (task.IsCanceled)
-                {
-                    Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
-
-                    GetErrorMessage((AuthError)e.ErrorCode);
-                    return;
-                }
-                if (task.IsFaulted)
-                {
-                    Firebase.FirebaseException e =
-                    task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
-
-                    GetErrorMessage((AuthError)e.ErrorCode);
-
-                    return;
-                }
-                if (task.IsCompleted)
-                {
-                    //print("Registracion COMPLETE");
-
-                }
-            }));
-        }
     }
      
    

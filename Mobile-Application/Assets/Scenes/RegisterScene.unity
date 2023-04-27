@@ -152,7 +152,7 @@ Transform:
   m_LocalScale: {x: 0.45360923, y: 0.45360923, z: 0.45360923}
   m_Children: []
   m_Father: {fileID: 1680171178}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &115387481
 MonoBehaviour:
@@ -169,8 +169,6 @@ MonoBehaviour:
   emailInput: {fileID: 700795052}
   passwordInput: {fileID: 985492355}
   roleInput: {fileID: 585408090}
-  registershop: {fileID: 0}
-  registerCustomer: {fileID: 940782100}
 --- !u!1 &284201876
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +649,7 @@ RectTransform:
   - {fileID: 437123227}
   - {fileID: 1454466515}
   m_Father: {fileID: 1680171178}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -810,7 +808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Customer
+  m_Text: Role
 --- !u!222 &585408091
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1153,7 +1151,7 @@ RectTransform:
   m_LocalScale: {x: 0.45360923, y: 0.45360923, z: 0.45360923}
   m_Children: []
   m_Father: {fileID: 1680171178}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1672,7 +1670,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 940782101}
   m_OnClick:
     m_PersistentCalls:
@@ -1876,7 +1874,7 @@ RectTransform:
   - {fileID: 1859379023}
   - {fileID: 2027703561}
   m_Father: {fileID: 1680171178}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1932,11 +1930,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: Role
+      m_Image: {fileID: 0}
     - m_Text: Customer
       m_Image: {fileID: 0}
     - m_Text: Shop Owner
-      m_Image: {fileID: 0}
-    - m_Text: 
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2085,7 +2083,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1680171178}
-  m_RootOrder: 5
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2339,7 +2337,7 @@ RectTransform:
   - {fileID: 1950589762}
   - {fileID: 284201877}
   m_Father: {fileID: 1680171178}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2806,6 +2804,7 @@ GameObject:
   - component: {fileID: 1680171180}
   - component: {fileID: 1680171179}
   - component: {fileID: 1680171181}
+  - component: {fileID: 1680171182}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2829,13 +2828,13 @@ RectTransform:
   - {fileID: 875634637}
   - {fileID: 420792433}
   - {fileID: 940782099}
-  - {fileID: 1201949939}
   - {fileID: 1312220691}
   - {fileID: 517226952}
   - {fileID: 1048375020}
   - {fileID: 115387480}
   - {fileID: 814973531}
   - {fileID: 1734831461}
+  - {fileID: 1201949939}
   m_Father: {fileID: 1877390990}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2895,6 +2894,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstpage: {fileID: 814973532}
+--- !u!114 &1680171182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680171177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b857dc3822babf149b787545edbfb4cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  registerCustomer: {fileID: 940782100}
 --- !u!1 &1734831460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,7 +2936,7 @@ Transform:
   m_LocalScale: {x: 0.45360923, y: 0.45360923, z: 0.45360923}
   m_Children: []
   m_Father: {fileID: 1680171178}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1734831462
 MonoBehaviour:
