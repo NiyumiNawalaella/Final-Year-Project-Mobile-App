@@ -74,7 +74,7 @@ public class AuthController : MonoBehaviour
                 }
                 if (task.IsCompleted)
                 {
-                    registerCustomer.onClick.AddListener(RegisterCustomer);
+                   //registerCustomer.GetComponentRegister
                 }
             }));
         }
@@ -104,20 +104,13 @@ public class AuthController : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     //print("Registracion COMPLETE");
-                    registershop.onClick.AddListener(RegisterShopPage);
+
                 }
             }));
         }
     }
      
-    private void RegisterShopPage()
-    {
-        ScenesManager.Instance.LoadScene(ScenesManager.Scene.RegisterShopScene);
-    }
-    private void RegisterCustomer()
-        {
-            ScenesManager.Instance.LoadScene(ScenesManager.Scene.WelcomeScene);
-        }
+   
 public void Logout() { }
 
     public void GetErrorMessage(AuthError errorCode)
