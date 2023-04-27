@@ -6,7 +6,8 @@ using Firebase.Auth;
 
 public class AuthController : MonoBehaviour
 {
-    public Text emailInput, passwordInput;
+    public Text emailInput, passwordInput, roleInput;
+    [SerializeField] Button registershop, registerCustomer;
 
     public void Login()
     {
@@ -37,43 +38,87 @@ public class AuthController : MonoBehaviour
             }
         }));
     }
-
+    //void Start()
+    //{
+        //registershop.onClick.AddListener(RegisterShopPage);
+       // registerCustomer.onClick.AddListener(RegisterCustomer);
+    //}
     public void Login_Anonymous() { }
 
     public void RegisterUser()
     {
-        if(emailInput.text.Equals("") && passwordInput.text.Equals(""))
+        if (emailInput.text.Equals("") && passwordInput.text.Equals("") && roleInput.text.Equals(""))
         {
-            print("Please enter an email and password to register");
+            print("Please enter an email, password and select the role to register");
             return;
         }
-        FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task =>
+        if (roleInput.text.Equals("Customer"))
         {
-            if (task.IsCanceled)
+            FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task =>
             {
-                Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+                if (task.IsCanceled)
+                {
+                    Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
 
-                GetErrorMessage((AuthError)e.ErrorCode);
-                return;
-            }
-            if (task.IsFaulted)
+                    GetErrorMessage((AuthError)e.ErrorCode);
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Firebase.FirebaseException e =
+                    task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+
+                    GetErrorMessage((AuthError)e.ErrorCode);
+
+                    return;
+                }
+                if (task.IsCompleted)
+                {
+                    registerCustomer.onClick.AddListener(RegisterCustomer);
+                }
+            }));
+        }
+        
+        if (roleInput.text.Equals("Shop Owner"))
+        {
+           
+
+            FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(emailInput.text, passwordInput.text).ContinueWith((task =>
             {
-                Firebase.FirebaseException e =
-                task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+                if (task.IsCanceled)
+                {
+                    Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
 
-                GetErrorMessage((AuthError)e.ErrorCode);
+                    GetErrorMessage((AuthError)e.ErrorCode);
+                    return;
+                }
+                if (task.IsFaulted)
+                {
+                    Firebase.FirebaseException e =
+                    task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
 
-                return;
-            }
-            if (task.IsCompleted)
-            {
-                print("Registracion COMPLETE");
-            }
-        }));
+                    GetErrorMessage((AuthError)e.ErrorCode);
+
+                    return;
+                }
+                if (task.IsCompleted)
+                {
+                    //print("Registracion COMPLETE");
+                    registershop.onClick.AddListener(RegisterShopPage);
+                }
+            }));
+        }
     }
-    
-
-    public void Logout() { }
+     
+    private void RegisterShopPage()
+    {
+        ScenesManager.Instance.LoadScene(ScenesManager.Scene.RegisterShopScene);
+    }
+    private void RegisterCustomer()
+        {
+            ScenesManager.Instance.LoadScene(ScenesManager.Scene.WelcomeScene);
+        }
+public void Logout() { }
 
     public void GetErrorMessage(AuthError errorCode)
     {
