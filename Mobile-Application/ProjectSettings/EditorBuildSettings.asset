@@ -4,7 +4,58 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/FirstScene.unity
+    guid: cf7ed8442d2afd949b7d3c41b1574f64
+  - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: 7eede5adc1c80ef4abb7df6862971eb1
+  - enabled: 1
+    path: Assets/Scenes/RegisterScene.unity
+    guid: 95a8682bab011274399ed4896136c67a
+  - enabled: 1
+    path: Assets/Scenes/RegisterShopScene.unity
+    guid: 34937e6420a13c14eb43e1d344902786
+  - enabled: 1
+    path: Assets/Scenes/WelcomeScene.unity
+    guid: ec23623d66629c14d8958c4301a56b9d
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: 7bb5d7ff5a8514645b48f760c9813274
+  - enabled: 0
+    path: Assets/Scenes/AccountCustomerScene.unity
+    guid: 2bda1c4a0f805604aac062da03b9a95d
+  - enabled: 0
+    path: Assets/Scenes/AccountShopOwnerScene.unity
+    guid: aff985a175119e645a2f953037512980
+  - enabled: 0
+    path: Assets/Scenes/AddPromotionScene.unity
+    guid: 8e99687d7c43bf84b910635c4dadead7
+  - enabled: 0
+    path: Assets/Scenes/BlankAR.unity
+    guid: 6bdce89659816455b9f906fc62d19910
+  - enabled: 0
+    path: Assets/Scenes/ChangePasswordAccountScene.unity
+    guid: c1d3b36b74f1a464295113062248d42e
+  - enabled: 0
+    path: Assets/Scenes/EditPageAccountScene.unity
+    guid: 71e76db031fe3ea4ead4efc7e254cea5
+  - enabled: 0
+    path: Assets/Scenes/EditPageShopScene.unity
+    guid: b2471baa83994d245a37959b2fa50248
+  - enabled: 0
+    path: Assets/Scenes/PermissionScene.unity
+    guid: 52781e487b0e5db468be8b05a8573c91
+  - enabled: 0
+    path: Assets/Scenes/PromotionScene.unity
+    guid: 0d1c2ca1c31f97146951b409d6bf0549
+  - enabled: 0
+    path: Assets/Scenes/SearchingScene.unity
+    guid: 23910312db510154c9c57b00d16840fc
+  - enabled: 0
+    path: Assets/Scenes/SearchScene.unity
+    guid: 87907927a363e9d43b1da625e4f2529d
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
