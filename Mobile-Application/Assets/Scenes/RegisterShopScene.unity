@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 1082716037}
   - component: {fileID: 1082716036}
   m_Layer: 5
-  m_Name: Password_InputField
+  m_Name: Telephone_InputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

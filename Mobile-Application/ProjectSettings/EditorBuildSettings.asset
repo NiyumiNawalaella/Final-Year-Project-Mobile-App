@@ -24,12 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/HomeScene.unity
     guid: 7bb5d7ff5a8514645b48f760c9813274
   - enabled: 0
-    path: Assets/Scenes/AccountCustomerScene.unity
-    guid: 2bda1c4a0f805604aac062da03b9a95d
-  - enabled: 0
-    path: Assets/Scenes/AccountShopOwnerScene.unity
-    guid: aff985a175119e645a2f953037512980
-  - enabled: 0
     path: Assets/Scenes/AddPromotionScene.unity
     guid: 8e99687d7c43bf84b910635c4dadead7
   - enabled: 0
@@ -48,14 +42,8 @@ EditorBuildSettings:
     path: Assets/Scenes/PermissionScene.unity
     guid: 52781e487b0e5db468be8b05a8573c91
   - enabled: 0
-    path: Assets/Scenes/PromotionScene.unity
-    guid: 0d1c2ca1c31f97146951b409d6bf0549
-  - enabled: 0
     path: Assets/Scenes/SearchingScene.unity
     guid: 23910312db510154c9c57b00d16840fc
-  - enabled: 0
-    path: Assets/Scenes/SearchScene.unity
-    guid: 87907927a363e9d43b1da625e4f2529d
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
