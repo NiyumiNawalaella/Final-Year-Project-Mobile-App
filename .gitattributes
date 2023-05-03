@@ -51,3 +51,4 @@
 *.bundle filter=lfs diff=lfs merge=lfs -text
 *.csv filter=lfs diff=lfs merge=lfs -text
 *.tgz filter=lfs diff=lfs merge=lfs -text
+*.xyz filter=lfs diff=lfs merge=lfs -text
