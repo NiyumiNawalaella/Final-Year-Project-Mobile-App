@@ -89,7 +89,19 @@ public class Register_User : MonoBehaviour
             }
             else
             {
+                //User has now been created 
+                //Now get the result
+                User = RegisterTask.Result;
+                if(User!=null)
+                {
+                    //Create a user profile and set the email address
+                    UserProfile profile = new UserProfile { DisplayName = _role };
 
+                    //Call the firebase auth update user profile function passing the profile with the username
+                    var ProfileTask = User.UpdateUserProfileAsync(profile);
+                    //wait until the task completes
+                    yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
+                }
             }
         }
     }
