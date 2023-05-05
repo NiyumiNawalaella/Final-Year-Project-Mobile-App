@@ -50,8 +50,14 @@ public class Register_User : MonoBehaviour
     public void RegisterButton()
     {
         //Call the register coroutne passing the email, password, role
-        StartCoroutine(Register(emailRegister_InputField.text, passwordRegister_InputField.text, roleRegister_DropDown.itemText));
+        _ = StartCoroutine(Register(emailRegister_InputField.text, passwordRegister_InputField.text, roleRegister_DropDown.captionText));
     }
+
+    private IEnumerator Register(string text1, string text2, Text captionText)
+    {
+        throw new NotImplementedException();
+    }
+
     private IEnumerator Register(string _email, string _password, string _role)
     {
         if (_email == "")
