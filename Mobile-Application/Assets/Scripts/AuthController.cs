@@ -10,7 +10,7 @@ using TMPro;
 public class AuthController : MonoBehaviour
 
 {
-    public Text emailInput, passwordInput, roleInput;
+    public Text emailInput, passwordInput;
     //[SerializeField] Button registershop, registerCustomer;
 
     public void Login()
@@ -49,7 +49,7 @@ public class AuthController : MonoBehaviour
     //}
     public void Login_Anonymous() { }
 
-    public void RegisterUser()
+    /*public void RegisterUser()
     {
         if (emailInput.text.Equals("") && passwordInput.text.Equals("") && roleInput.text.Equals(""))
         {
@@ -83,7 +83,7 @@ public class AuthController : MonoBehaviour
                 }
             }));
         
-    }
+    }*/
      
    
 public void Logout() { }

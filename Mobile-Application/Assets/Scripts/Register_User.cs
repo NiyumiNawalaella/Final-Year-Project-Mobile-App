@@ -46,21 +46,67 @@ public class Register_User : MonoBehaviour
         //Set the authenication instance object
         auth = FirebaseAuth.DefaultInstance;
     }
-    //Function for the register button
-    public void RegisterButton()
+    public void RegisterUser()
     {
-        //Call the register coroutne passing the email, password, role
-        _ = StartCoroutine(Register(emailRegister_InputField.text, passwordRegister_InputField.text, roleRegister_DropDown.captionText));
+        if (emailRegister_InputField.text.Equals("") && passwordRegister_InputField.text.Equals(""))
+        {
+            warningRegister_Text.text = "Missing Email Address and Password";
+        }
+        else if (passwordRegister_InputField != confirmRegister_InputField)
+        {
+            warningRegister_Text.text = "Password Does Not Match";
+        }
+        FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(emailRegister_InputField.text, passwordRegister_InputField.text).ContinueWith((task =>
+        {
+            if (task.IsCanceled)
+            {
+                Firebase.FirebaseException e = task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+                AuthError errorCode = (AuthError)e.ErrorCode;
+                return;
+            }
+            if (task.IsFaulted)
+            {
+                Firebase.FirebaseException e =
+                task.Exception.Flatten().InnerExceptions[0] as Firebase.FirebaseException;
+               //GetErrorMessage((AuthError)e.ErrorCode);
+                AuthError errorCode = (AuthError)e.ErrorCode;
+                
+                string message = "Register Failed!";
+                switch (errorCode)
+                {
+                    case AuthError.MissingEmail: message = "Missing Email"; break;
+                    case AuthError.MissingPassword: message = "Missing Password"; break;
+                    case AuthError.WeakPassword: message = "Weak Password"; break;
+                    case AuthError.EmailAlreadyInUse: message = "Email Already In Use"; break;
+                }
+                warningRegister_Text.text = message;
+            }
+            else 
+            {
+                ScenesManager.Instance.LoadScene(ScenesManager.Scene.LoginScene);
+                warningRegister_Text.text = "";
+                //print("Registracion COMPLETE");
+                //ScenesManager.Instance.LoadScene(ScenesManager.Scene.WelcomeScene);
+                //registerCustomer.GetComponentRegister
+            }
+        }));
     }
 
-    private IEnumerator Register(string text1, string text2, Text captionText)
+    private void GetErrorMessage(AuthError errorCode)
     {
         throw new NotImplementedException();
     }
 
-    private IEnumerator Register(string _email, string _password, string _role)
+    //Function for the register button
+    /*public void RegisterButton()
     {
-        if (_email == "")
+        //Call the register coroutne passing the email, password, role
+      StartCoroutine(Register(emailRegister_InputField.text, passwordRegister_InputField.text, confirmRegister_InputField.text, roleRegister_DropDown.options[roleRegister_DropDown.value].text));
+    }
+
+    public IEnumerator Register(string emailRegister_InputField , string passwordRegister_InputField, string confirmRegister_InputField, string roleRegister_DropDown)
+    {
+        if (emailRegister_InputField == "")
         {
             //If the email address field is blan show a warning
             warningRegister_Text.text = "Missing Email Address";
@@ -72,7 +118,7 @@ public class Register_User : MonoBehaviour
         else
         {
             //Call the Firebase auth signin function passing the email and password
-            var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
+            var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(emailRegister_InputField, passwordRegister_InputField);
             //wait until the task completes
             yield return new WaitUntil(predicate: () => RegisterTask.IsCompleted);
 
@@ -93,7 +139,7 @@ public class Register_User : MonoBehaviour
                 }
                 warningRegister_Text.text = message;
             }
-            else
+            /*else
             {
                 //User has now been created 
                 //Now get the result
@@ -101,16 +147,40 @@ public class Register_User : MonoBehaviour
                 if(User!=null)
                 {
                     //Create a user profile and set the email address
-                    UserProfile profile = new UserProfile { DisplayName = _role };
+                    UserProfile profile = new UserProfile { DisplayName = _role};
 
                     //Call the firebase auth update user profile function passing the profile with the username
                     var ProfileTask = User.UpdateUserProfileAsync(profile);
                     //wait until the task completes
                     yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
-                }
-            }
-        }
-    }
+
+                   
+                    if(ProfileTask.Exception != null)
+                    {
+                        //If there are errors handle them
+                        Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
+                        FirebaseException firebaseEx = ProfileTask.Exception.GetBaseException() as FirebaseException;
+                        AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+                        warningRegister_Text.text = "Role Set Failed!";
+
+                        
+                    }*/
+                    /*else if(_role=="Shop Owner")
+                        {
+                            ScenesManager.Instance.LoadScene(ScenesManager.Scene.RegisterShopScene);
+                            warningRegister_Text.text = "";
+                        }
+            
+                    else
+                    {
+                        //Role is not set
+                        //Now return to login Screen
+                        ScenesManager.Instance.LoadScene(ScenesManager.Scene.LoginScene);
+                        warningRegister_Text.text = "";
+                    }
+                
+        } 
+    }*/
 }
 
     /*public Text emailInput, passwordInput, roleInput;
