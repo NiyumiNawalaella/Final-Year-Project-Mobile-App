@@ -8,8 +8,56 @@ using Firebase.Auth;
 using TMPro;
 
 public class AuthController : MonoBehaviour
-
 {
+    public InputField emailInput, passwordInput, forgetPassEmail;
+    public GameObject Login_Panel, ForgetPassordPanel, WarningPanel;
+    public Text warning_Title_Text, warning_Message_Text;
+
+    public void OpenLoginPanel()
+    {
+        Login_Panel.SetActive(true);
+        ForgetPassordPanel.SetActive(false);
+    }
+    public void OpenForgetPasswordPanel()
+    {
+        Login_Panel.SetActive(false);
+        ForgetPassordPanel.SetActive(true);
+    }
+    public void LoginUser()
+    {
+        if (string.IsNullOrEmpty(emailInput.text) && string.IsNullOrEmpty(passwordInput.text))
+        {
+            showWarningMessage("Error", "Fields are Empty, Please fill all the Input Fields");
+            return;
+        }
+        //Do Login
+    }
+
+    public void forgetPass()
+    {
+        if (string.IsNullOrEmpty(forgetPassEmail.text))
+        {
+            showWarningMessage("Error", "Fields are Empty, Please fill all the Input Fields");
+            return;
+        }
+    }
+    private void showWarningMessage(string title, string message)
+    {
+        warning_Title_Text.text = "" + title;
+        warning_Message_Text.text = "" + message;
+
+        WarningPanel.SetActive(true);
+
+
+    }
+
+    public void CloseWarningMessage_Panel()
+    {
+        WarningPanel.SetActive(false);
+    }
+}
+
+/*{
     public Text emailInput, passwordInput;
     //[SerializeField] Button registershop, registerCustomer;
 
@@ -83,7 +131,7 @@ public class AuthController : MonoBehaviour
                 }
             }));
         
-    }*/
+    }
      
    
 public void Logout() { }
@@ -96,4 +144,4 @@ public void Logout() { }
 
         print(msg);
     }
-}
+}*/
